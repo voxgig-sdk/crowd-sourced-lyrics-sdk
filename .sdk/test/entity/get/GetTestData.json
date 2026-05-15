@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "get": {
+      "GET00": {
+        "album_name": "s46",
+        "artist_name": "s47",
+        "duration": "s48",
+        "id": "GET00",
+        "plain_lyric": "s4a",
+        "synced_lyric": "s4b",
+        "track_name": "s4c"
+      },
+      "GET01": {
+        "album_name": "s8c",
+        "artist_name": "s8d",
+        "duration": "s8e",
+        "id": "GET01",
+        "plain_lyric": "s90",
+        "synced_lyric": "s91",
+        "track_name": "s92"
+      },
+      "GET02": {
+        "album_name": "sd2",
+        "artist_name": "sd3",
+        "duration": "sd4",
+        "id": "GET02",
+        "plain_lyric": "sd6",
+        "synced_lyric": "sd7",
+        "track_name": "sd8"
+      }
+    }
+  },
+  "new": {
+    "get": {
+      "get_ref01": {
+        "album_name": "s118",
+        "artist_name": "s119",
+        "duration": "s11a",
+        "plain_lyric": "s11c",
+        "synced_lyric": "s11d",
+        "track_name": "s11e"
+      }
+    }
+  }
+}

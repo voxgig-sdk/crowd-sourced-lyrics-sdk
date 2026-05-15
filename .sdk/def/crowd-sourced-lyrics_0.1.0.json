@@ -1,0 +1,197 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Crowd Sourced Lyrics API",
+    "description": "Crowd Sourced Lyrics API - A community-driven API for accessing synchronized lyrics (LRC format) for songs",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://lrclib.net/docs"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://lrclib.net/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/get": {
+      "get": {
+        "summary": "Get lyrics for a song",
+        "description": "Retrieve synchronized lyrics for a song by providing track name, artist name, album name, and/or duration",
+        "operationId": "getLyrics",
+        "parameters": [
+          {
+            "name": "track_name",
+            "in": "query",
+            "description": "The name of the track",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Never Gonna Give You Up"
+          },
+          {
+            "name": "artist_name",
+            "in": "query",
+            "description": "The name of the artist",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Rick Astley"
+          },
+          {
+            "name": "album_name",
+            "in": "query",
+            "description": "The name of the album",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "description": "The duration of the track in seconds",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 213
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with lyrics data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier for the lyrics entry"
+                    },
+                    "trackName": {
+                      "type": "string",
+                      "description": "The name of the track"
+                    },
+                    "artistName": {
+                      "type": "string",
+                      "description": "The name of the artist"
+                    },
+                    "albumName": {
+                      "type": "string",
+                      "description": "The name of the album"
+                    },
+                    "duration": {
+                      "type": "integer",
+                      "description": "Duration of the track in seconds"
+                    },
+                    "plainLyrics": {
+                      "type": "string",
+                      "description": "Plain text lyrics without timestamps"
+                    },
+                    "syncedLyrics": {
+                      "type": "string",
+                      "description": "Synchronized lyrics in LRC format with timestamps"
+                    }
+                  }
+                },
+                "example": {
+                  "id": 12345,
+                  "trackName": "Never Gonna Give You Up",
+                  "artistName": "Rick Astley",
+                  "albumName": "Whenever You Need Somebody",
+                  "duration": 213,
+                  "plainLyrics": "We're no strangers to love\nYou know the rules and so do I...",
+                  "syncedLyrics": "[00:00.00] We're no strangers to love\n[00:03.50] You know the rules and so do I..."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lyrics not found for the specified track",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Lyrics": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the lyrics entry"
+          },
+          "trackName": {
+            "type": "string",
+            "description": "The name of the track"
+          },
+          "artistName": {
+            "type": "string",
+            "description": "The name of the artist"
+          },
+          "albumName": {
+            "type": "string",
+            "description": "The name of the album",
+            "nullable": true
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of the track in seconds"
+          },
+          "plainLyrics": {
+            "type": "string",
+            "description": "Plain text lyrics without timestamps",
+            "nullable": true
+          },
+          "syncedLyrics": {
+            "type": "string",
+            "description": "Synchronized lyrics in LRC format with timestamps",
+            "nullable": true
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}

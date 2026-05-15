@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://lrclib.net/docs"
+      }
+      description: "Crowd Sourced Lyrics API - A community-driven API for accessing synchronized lyrics (LRC format) for songs"
+      servers: [
+        {
+          description: "Production server"
+          url: "https://lrclib.net/api"
+        }
+      ]
+      title: "Crowd Sourced Lyrics API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
