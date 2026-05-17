@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk"
-	"github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/core"
+	sdk "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go"
+	"github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go/utility/struct"
 )
 
 func TestGetEntity(t *testing.T) {

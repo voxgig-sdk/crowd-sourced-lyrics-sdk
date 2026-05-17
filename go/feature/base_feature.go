@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/core"
+	"github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go/core"
 )
 
 type BaseFeature struct {

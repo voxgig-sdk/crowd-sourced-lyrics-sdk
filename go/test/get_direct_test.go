@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk"
-	"github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/core"
+	sdk "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go"
+	"github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go/core"
 )
 
 func TestGetDirect(t *testing.T) {
