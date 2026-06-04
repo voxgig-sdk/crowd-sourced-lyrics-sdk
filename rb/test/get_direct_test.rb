@@ -61,14 +61,12 @@ def get_direct_setup(mockres)
   env = Runner.env_override({
     "CROWDSOURCEDLYRICS_TEST_GET_ENTID" => {},
     "CROWDSOURCEDLYRICS_TEST_LIVE" => "FALSE",
-    "CROWDSOURCEDLYRICS_APIKEY" => "NONE",
   })
 
   live = env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["CROWDSOURCEDLYRICS_APIKEY"],
     }
     client = CrowdSourcedLyricsSDK.new(merged_opts)
     return {

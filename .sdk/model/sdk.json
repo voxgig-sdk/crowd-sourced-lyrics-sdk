@@ -16,7 +16,17 @@
           }
         ],
         "title": "Crowd Sourced Lyrics API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Fetch community-contributed synchronized lyrics (LRC) for songs by track signature",
+        "homepage": "https://lrclib.net",
+        "docs_url": "https://lrclib.net/docs",
+        "license_short": "Lyrics are user-contributed; check LRCLIB for terms before redistribution",
+        "license_md": "- Lyrics on LRCLIB are crowd-sourced from users and may carry third-party copyright\n- The service itself is free to use without authentication\n- Review the LRCLIB site for any attribution or redistribution guidance before reusing data commercially",
+        "about_md": "[LRCLIB](https://lrclib.net) is a free, community-driven repository of song lyrics, including time-synchronized lyrics in the LRC format used by media players to highlight lines as a track plays. The project hosts a public HTTP API at `https://lrclib.net/api` that any client can call without an API key.\n\nWhat you get from the API:\n\n- Lookup of lyrics for a specific track by signature (artist name, track name, album name, and duration)\n- Plain-text lyrics and synchronized LRC-format lyrics when available\n- A simple JSON response shape suitable for embedding in music players and tagging tools\n\nThe service is HTTP-only with CORS enabled, so it can be called from browser apps as well as native clients. Because the catalogue is crowd-sourced, coverage and quality vary by track, and a duration tolerance is used when matching requests against stored entries.",
+        "entity_desc": {
+          "get": "Lyrics lookup by track signature — call `GET /api/get` with `artist_name`, `track_name`, `album_name`, and `duration` query parameters to retrieve plain and synchronized (LRC) lyrics for a song."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "get": {

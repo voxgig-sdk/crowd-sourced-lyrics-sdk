@@ -95,7 +95,6 @@ function get_basic_setup(extra)
     ["CROWDSOURCEDLYRICS_TEST_GET_ENTID"] = idmap,
     ["CROWDSOURCEDLYRICS_TEST_LIVE"] = "FALSE",
     ["CROWDSOURCEDLYRICS_TEST_EXPLAIN"] = "FALSE",
-    ["CROWDSOURCEDLYRICS_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -107,7 +106,6 @@ function get_basic_setup(extra)
   if env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["CROWDSOURCEDLYRICS_APIKEY"],
       },
       extra or {},
     })
