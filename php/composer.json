@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/crowd-sourced-lyrics",
-  "description": "CrowdSourcedLyrics SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Crowd Sourced Lyrics public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "crowd-sourced-lyrics"],
+  "homepage": "https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

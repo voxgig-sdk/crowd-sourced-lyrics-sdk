@@ -10,7 +10,7 @@ The PHP SDK for the CrowdSourcedLyrics API — an entity-oriented client using P
 
 ## Install
 ```bash
-composer require voxgig/crowd-sourced-lyrics-sdk
+composer require voxgig-sdk/crowd-sourced-lyrics
 ```
 
 

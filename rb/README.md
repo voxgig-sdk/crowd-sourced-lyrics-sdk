@@ -10,13 +10,13 @@ The Ruby SDK for the CrowdSourcedLyrics API — an entity-oriented client using 
 
 ## Install
 ```bash
-gem install crowd-sourced-lyrics-sdk
+gem install voxgig-sdk-crowd-sourced-lyrics
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "crowd-sourced-lyrics-sdk"
+gem "voxgig-sdk-crowd-sourced-lyrics"
 ```
 
 Then run:

@@ -10,7 +10,7 @@ The Lua SDK for the CrowdSourcedLyrics API — an entity-oriented client using L
 
 ## Install
 ```bash
-luarocks install crowd-sourced-lyrics-sdk
+luarocks install voxgig-sdk-crowd-sourced-lyrics
 ```
 
 If the module is not yet published, add the source directory to

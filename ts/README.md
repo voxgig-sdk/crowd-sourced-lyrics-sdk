@@ -10,7 +10,7 @@ The TypeScript SDK for the CrowdSourcedLyrics API — a type-safe, entity-orient
 
 ## Install
 ```bash
-npm install crowd-sourced-lyrics
+npm install @voxgig-sdk/crowd-sourced-lyrics
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The Python SDK for the CrowdSourcedLyrics API — an entity-oriented client foll
 
 ## Install
 ```bash
-pip install crowd-sourced-lyrics-sdk
+pip install voxgig-sdk-crowd-sourced-lyrics
 ```
 
 Or install from source:
