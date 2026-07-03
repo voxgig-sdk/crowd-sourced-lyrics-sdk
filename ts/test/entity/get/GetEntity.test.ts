@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'CROWD_SOURCED_LYRICS_TEST_GET_ENTID': idmap,
     'CROWD_SOURCED_LYRICS_TEST_LIVE': 'FALSE',
     'CROWD_SOURCED_LYRICS_TEST_EXPLAIN': 'FALSE',
+    'CROWD_SOURCED_LYRICS_APIKEY': 'NONE',
   })
 
   idmap = env['CROWD_SOURCED_LYRICS_TEST_GET_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CrowdSourcedLyricsSDK(merge([
       {
+        apikey: env.CROWD_SOURCED_LYRICS_APIKEY,
       },
       extra
     ]))

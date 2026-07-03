@@ -99,12 +99,14 @@ func getDirectSetup(mockres any) *getDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CROWDSOURCEDLYRICS_TEST_GET_ENTID": map[string]any{},
 		"CROWDSOURCEDLYRICS_TEST_LIVE":    "FALSE",
+		"CROWDSOURCEDLYRICS_APIKEY":       "NONE",
 	})
 
 	live := env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["CROWDSOURCEDLYRICS_APIKEY"],
 		}
 		client := sdk.NewCrowdSourcedLyricsSDK(mergedOpts)
 

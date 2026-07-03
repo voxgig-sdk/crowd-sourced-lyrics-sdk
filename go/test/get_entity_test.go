@@ -123,6 +123,7 @@ func getBasicSetup(extra map[string]any) *entityTestSetup {
 		"CROWDSOURCEDLYRICS_TEST_GET_ENTID": idmap,
 		"CROWDSOURCEDLYRICS_TEST_LIVE":      "FALSE",
 		"CROWDSOURCEDLYRICS_TEST_EXPLAIN":   "FALSE",
+		"CROWDSOURCEDLYRICS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CROWDSOURCEDLYRICS_TEST_GET_ENTID"])
@@ -133,6 +134,7 @@ func getBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["CROWDSOURCEDLYRICS_APIKEY"],
 			},
 			extra,
 		})

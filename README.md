@@ -1,20 +1,8 @@
 # CrowdSourcedLyrics SDK
 
-Fetch community-contributed synchronized lyrics (LRC) for songs by track signature
+Crowd Sourced Lyrics API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Crowd Sourced Lyrics API
-
-[LRCLIB](https://lrclib.net) is a free, community-driven repository of song lyrics, including time-synchronized lyrics in the LRC format used by media players to highlight lines as a track plays. The project hosts a public HTTP API at `https://lrclib.net/api` that any client can call without an API key.
-
-What you get from the API:
-
-- Lookup of lyrics for a specific track by signature (artist name, track name, album name, and duration)
-- Plain-text lyrics and synchronized LRC-format lyrics when available
-- A simple JSON response shape suitable for embedding in music players and tagging tools
-
-The service is HTTP-only with CORS enabled, so it can be called from browser apps as well as native clients. Because the catalogue is crowd-sourced, coverage and quality vary by track, and a duration tolerance is used when matching requests against stored entries.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install crowd-sourced-lyrics-sdk
 luarocks install crowd-sourced-lyrics-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CrowdSourcedLyricsSDK } from 'crowd-sourced-lyrics'
 
-const client = new CrowdSourcedLyricsSDK({})
+const client = new CrowdSourcedLyricsSDK({
+  apikey: process.env.CROWD-SOURCED-LYRICS_APIKEY,
+})
 
+// Load get data
+const get = await client.Get().load({})
+console.log(get.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Get** | Lyrics lookup by track signature — call `GET /api/get` with `artist_name`, `track_name`, `album_name`, and `duration` query parameters to retrieve plain and synchronized (LRC) lyrics for a song. | `/get` |
+| **Get** |  | `/get` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from crowdsourcedlyrics_sdk import CrowdSourcedLyricsSDK
 
-client = CrowdSourcedLyricsSDK({})
+client = CrowdSourcedLyricsSDK({
+    "apikey": os.environ.get("CROWD-SOURCED-LYRICS_APIKEY"),
+})
 
 
 # Load a specific get
-get, err = client.Get(None).load(
-    {"id": "example_id"}, None
-)
+get, err = client.Get().load({"id": "example_id"})
+print(get)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ get, err = client.Get(None).load(
 <?php
 require_once 'crowdsourcedlyrics_sdk.php';
 
-$client = new CrowdSourcedLyricsSDK([]);
+$client = new CrowdSourcedLyricsSDK([
+    "apikey" => getenv("CROWD-SOURCED-LYRICS_APIKEY"),
+]);
 
 
 // Load a specific get
-[$get, $err] = $client->Get(null)->load(
-    ["id" => "example_id"], null
-);
+[$get, $err] = $client->Get()->load(["id" => "example_id"]);
+print_r($get);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new CrowdSourcedLyricsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go"
 
-client := sdk.NewCrowdSourcedLyricsSDK(map[string]any{})
+client := sdk.NewCrowdSourcedLyricsSDK(map[string]any{
+    "apikey": os.Getenv("CROWD-SOURCED-LYRICS_APIKEY"),
+})
 
+// Load get data
+get, err := client.Get(nil).Load(map[string]any{}, nil)
+fmt.Println(get)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewCrowdSourcedLyricsSDK(map[string]any{})
 ```ruby
 require_relative "CrowdSourcedLyrics_sdk"
 
-client = CrowdSourcedLyricsSDK.new({})
+client = CrowdSourcedLyricsSDK.new({
+  "apikey" => ENV["CROWD-SOURCED-LYRICS_APIKEY"],
+})
 
 
 # Load a specific get
-get, err = client.Get(nil).load(
-  { "id" => "example_id" }, nil
-)
+get, err = client.Get().load({ "id" => "example_id" })
+puts get
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ get, err = client.Get(nil).load(
 ```lua
 local sdk = require("crowd-sourced-lyrics_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CROWD-SOURCED-LYRICS_APIKEY"),
+})
 
 
 -- Load a specific get
-local get, err = client:Get(nil):load(
-  { id = "example_id" }, nil
-)
+local get, err = client:Get():load({ id = "example_id" })
+print(get)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.Get().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CrowdSourcedLyricsSDK.test(None, None)
-result, err = client.Get(None).load(
-    {"id": "test01"}, None
-)
+client = CrowdSourcedLyricsSDK.test()
+result, err = client.Get().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CrowdSourcedLyricsSDK::test(null, null);
-[$result, $err] = $client->Get(null)->load(
-    ["id" => "test01"], null
-);
+$client = CrowdSourcedLyricsSDK::test();
+[$result, $err] = $client->Get()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Get(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.Get(nil).Load(
 ### Ruby
 
 ```ruby
-client = CrowdSourcedLyricsSDK.test(nil, nil)
-result, err = client.Get(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CrowdSourcedLyricsSDK.test
+result, err = client.Get().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Get(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Get():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Crowd Sourced Lyrics API
-
-- Upstream: [https://lrclib.net](https://lrclib.net)
-- API docs: [https://lrclib.net/docs](https://lrclib.net/docs)
-
-- Lyrics on LRCLIB are crowd-sourced from users and may carry third-party copyright
-- The service itself is free to use without authentication
-- Review the LRCLIB site for any attribution or redistribution guidance before reusing data commercially
 
 ---
 
