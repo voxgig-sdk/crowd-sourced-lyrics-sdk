@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:get():list() / client:get():load({ id = ... })
+function CrowdSourcedLyricsSDK:get(data)
+  local EntityMod = require("entity.get_entity")
+  if data == nil then
+    if self._get == nil then
+      self._get = EntityMod.new(self, nil)
+    end
+    return self._get
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get() instead.
 function CrowdSourcedLyricsSDK:Get(data)
   local EntityMod = require("entity.get_entity")
   return EntityMod.new(self, data)

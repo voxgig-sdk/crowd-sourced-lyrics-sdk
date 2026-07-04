@@ -51,8 +51,7 @@ class TestGetEntity:
         get_ref01_match_dt0 = {
             "id": get_ref01_data["id"],
         }
-        get_ref01_data_dt0_loaded, err = get_ref01_ent.load(get_ref01_match_dt0, None)
-        assert err is None
+        get_ref01_data_dt0_loaded = get_ref01_ent.load(get_ref01_match_dt0, None)
         get_ref01_data_dt0_load_result = helpers.to_map(get_ref01_data_dt0_loaded)
         assert get_ref01_data_dt0_load_result is not None
         assert get_ref01_data_dt0_load_result["id"] == get_ref01_data["id"]
@@ -95,7 +94,6 @@ def _get_basic_setup(extra):
         "CROWDSOURCEDLYRICS_TEST_GET_ENTID": idmap,
         "CROWDSOURCEDLYRICS_TEST_LIVE": "FALSE",
         "CROWDSOURCEDLYRICS_TEST_EXPLAIN": "FALSE",
-        "CROWDSOURCEDLYRICS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _get_basic_setup(extra):
     if env.get("CROWDSOURCEDLYRICS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CROWDSOURCEDLYRICS_APIKEY"),
             },
             extra or {},
         ])

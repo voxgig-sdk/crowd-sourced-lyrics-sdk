@@ -245,6 +245,9 @@ func (sdk *CrowdSourcedLyricsSDK) Direct(fetchargs map[string]any) (map[string]a
 }
 
 
+// Get returns a Get entity bound to this client.
+// Idiomatic usage: client.Get(nil).List(nil, nil) or
+// client.Get(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CrowdSourcedLyricsSDK) Get(data map[string]any) CrowdSourcedLyricsEntity {
 	return NewGetEntityFunc(sdk, data)
 }

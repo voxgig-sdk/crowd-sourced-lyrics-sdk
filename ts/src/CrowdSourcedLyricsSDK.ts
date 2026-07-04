@@ -2,6 +2,8 @@
 
 import { GetEntity } from './entity/GetEntity'
 
+export type * from './CrowdSourcedLyricsTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class CrowdSourcedLyricsSDK {
 
 
 
+  _get?: GetEntity
+
+  // Idiomatic facade: `client.get.list()` / `client.get.load({ id })`.
+  get get(): GetEntity {
+    return (this._get ??= new GetEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get` instead. */
   Get(data?: any) {
     const self = this
     return new GetEntity(self,data)

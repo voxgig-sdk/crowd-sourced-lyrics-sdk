@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `CrowdSourcedLyricsSDK.test()`.
 ## GetEntity
 
 ```ts
-const get = client.Get()
+const get = client.get
 ```
 
 ### Fields
@@ -132,7 +131,7 @@ const get = client.Get()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Get().load({ id: 'get_id' })
+const result = await client.get.load({ id: 'get_id' })
 ```
 
 ### Common Methods

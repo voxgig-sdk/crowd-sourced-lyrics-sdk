@@ -45,6 +45,7 @@ class GetEntity
     end
   end
 
+  # @return [Get, Hash] the current Get data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class GetEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Get fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Get.
+  #
+  # @param reqmatch [GetLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Get, Hash] the loaded Get; raises CrowdSourcedLyricsError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

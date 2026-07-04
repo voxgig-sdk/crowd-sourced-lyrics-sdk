@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Get,
+  GetLoadMatch,
+} from '../CrowdSourcedLyricsTypes'
 
 // TODO: needs Entity superclass
-class GetEntity extends CrowdSourcedLyricsEntityBase {
+class GetEntity extends CrowdSourcedLyricsEntityBase<Get> {
 
   constructor(client: CrowdSourcedLyricsSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GetEntity extends CrowdSourcedLyricsEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GetLoadMatch, ctrl?: Control): Promise<Get> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GetEntity extends CrowdSourcedLyricsEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Get> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
