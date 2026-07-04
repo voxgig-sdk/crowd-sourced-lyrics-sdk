@@ -208,13 +208,7 @@ class CrowdSourcedLyricsSDK
   end
 
 
-  # Idiomatic facade: client.get.list / client.get.load({ "id" => ... })
-  def get
-    require_relative 'entity/get_entity'
-    @get ||= GetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get instead.
+  # Canonical facade: client.Get.list / client.Get.load({ "id" => ... })
   def Get(data = nil)
     require_relative 'entity/get_entity'
     GetEntity.new(self, data)

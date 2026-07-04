@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GetEntity
 
 ```php
-$get = $client->get();
+$get = $client->Get();
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ $get = $client->get();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->get()->load(["id" => "get_id"]);
+$result = $client->Get()->load(["id" => "get_id"]);
 ```
 
 ### Common Methods

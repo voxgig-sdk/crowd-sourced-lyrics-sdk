@@ -4,31 +4,33 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Get:
-    album_name: Optional[str] = None
-    artist_name: Optional[str] = None
-    duration: Optional[int] = None
-    id: Optional[int] = None
-    plain_lyric: Optional[str] = None
-    synced_lyric: Optional[str] = None
-    track_name: Optional[str] = None
+class Get(TypedDict, total=False):
+    album_name: str
+    artist_name: str
+    duration: int
+    id: int
+    plain_lyric: str
+    synced_lyric: str
+    track_name: str
 
 
-@dataclass
-class GetLoadMatch:
-    album_name: Optional[str] = None
-    artist_name: Optional[str] = None
-    duration: Optional[int] = None
-    id: Optional[int] = None
-    plain_lyric: Optional[str] = None
-    synced_lyric: Optional[str] = None
-    track_name: Optional[str] = None
-
+class GetLoadMatch(TypedDict, total=False):
+    album_name: str
+    artist_name: str
+    duration: int
+    id: int
+    plain_lyric: str
+    synced_lyric: str
+    track_name: str

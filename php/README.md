@@ -33,9 +33,10 @@ $client = new CrowdSourcedLyricsSDK();
 
 ```php
 try {
-    $result = $client->get()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Get record (throws on error).
+    $get = $client->Get()->load(["id" => "example_id"]);
+    print_r($get);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CrowdSourcedLyricsSDK::test();
+$client = CrowdSourcedLyricsSDK::test([
+    "entity" => ["get" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->get()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$get = $client->Get()->load(["id" => "test01"]);
+print_r($get);
 ```
 
 ### Use a custom fetch function
@@ -229,7 +234,7 @@ API path: `/get`
 
 ### Get
 
-Create an instance: `const get = client.get`
+Create an instance: `$get = $client->Get();`
 
 #### Operations
 
@@ -251,8 +256,9 @@ Create an instance: `const get = client.get`
 
 #### Example: Load
 
-```ts
-const get = await client.get.load({ id: 'get_id' })
+```php
+// load() returns the bare Get record (throws on error).
+$get = $client->Get()->load(["id" => "get_id"]);
 ```
 
 
@@ -327,7 +333,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$get = $client->get();
+$get = $client->Get();
 $get->load(["id" => "example_id"]);
 
 // $get->dataGet() now returns the loaded get data

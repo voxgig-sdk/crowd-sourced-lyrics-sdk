@@ -109,7 +109,7 @@ Alias for `CrowdSourcedLyricsSDK.test()`.
 ## GetEntity
 
 ```ts
-const get = client.get
+const get = client.Get()
 ```
 
 ### Fields
@@ -131,7 +131,7 @@ const get = client.get
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.get.load({ id: 'get_id' })
+const result = await client.Get().load({ id: 'get_id' })
 ```
 
 ### Common Methods

@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a get
 
 ```lua
-local result, err = client:get():load({ id = "example_id" })
+local get, err = client:Get():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(get)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:get():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Get():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -183,17 +183,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local get, err = client:Get():load({ id = "example_id" })
+    if err then error(err) end
+    -- get is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -220,7 +225,7 @@ API path: `/get`
 
 ### Get
 
-Create an instance: `const get = client.get`
+Create an instance: `local get = client:Get(nil)`
 
 #### Operations
 
@@ -242,8 +247,8 @@ Create an instance: `const get = client.get`
 
 #### Example: Load
 
-```ts
-const get = await client.get.load({ id: 'get_id' })
+```lua
+local get, err = client:Get():load({ id = "get_id" })
 ```
 
 
@@ -318,7 +323,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local get = client:get()
+local get = client:Get()
 get:load({ id = "example_id" })
 
 -- get:data_get() now returns the loaded get data

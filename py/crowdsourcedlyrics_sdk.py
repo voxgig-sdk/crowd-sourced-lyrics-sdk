@@ -220,25 +220,15 @@ class CrowdSourcedLyricsSDK:
         }
 
 
-    @property
-    def get(self):
-        """Idiomatic facade: client.get.list() / client.get.load({"id": ...})."""
-        from entity.get_entity import GetEntity
-        cached = getattr(self, "_get", None)
-        if cached is None:
-            cached = GetEntity(self, None)
-            self._get = cached
-        return cached
-
-    def Get(self, data=None):
-        # Deprecated: use client.get instead.
+    def Get(self, data=None) -> "GetEntity":
+        """Entity factory: client.Get().list({}) / client.Get().load({"id": ...})."""
         from entity.get_entity import GetEntity
         return GetEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CrowdSourcedLyricsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class CrowdSourcedLyricsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_entity import GetEntity

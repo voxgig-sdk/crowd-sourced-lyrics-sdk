@@ -26,9 +26,9 @@ import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics'
 
 const client = new CrowdSourcedLyricsSDK()
 
-// Load get data
-const get = await client.get.load({})
-console.log(get.data)
+// Load get data (returns a Get)
+const get = await client.Get().load()
+console.log(get)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from crowdsourcedlyrics_sdk import CrowdSourcedLyricsSDK
 client = CrowdSourcedLyricsSDK()
 
 
-# Load a specific get
-get = client.get.load({"id": "example_id"})
+# Load a specific get (returns the record, raises on error)
+get = client.Get().load({"id": "example_id"})
 print(get)
 ```
 
@@ -98,8 +98,8 @@ require_once 'crowdsourcedlyrics_sdk.php';
 $client = new CrowdSourcedLyricsSDK();
 
 
-// Load a specific get
-$get = $client->get()->load(["id" => "example_id"]);
+// Load a specific get (returns the bare record; throws on error)
+$get = $client->Get()->load(["id" => "example_id"]);
 print_r($get);
 ```
 
@@ -123,8 +123,8 @@ require_relative "CrowdSourcedLyrics_sdk"
 client = CrowdSourcedLyricsSDK.new
 
 
-# Load a specific get
-get = client.get.load({ "id" => "example_id" })
+# Load a specific get (returns the bare record; raises on error)
+get = client.Get.load({ "id" => "example_id" })
 puts get
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific get
-local get, err = client:get():load({ id = "example_id" })
+local get, err = client:Get():load({ id = "example_id" })
 print(get)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CrowdSourcedLyricsSDK.test()
-const result = await client.get.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const get = await client.Get().load({ id: 1 })
+// get is a bare Get populated with mock data
+console.log(get)
 ```
 
 ### Python
 
 ```python
 client = CrowdSourcedLyricsSDK.test()
-result = client.get.load({"id": "test01"})
+get = client.Get().load({"id": "test01"})
+print(get)
 ```
 
 ### PHP
 
 ```php
-$client = CrowdSourcedLyricsSDK::test();
-$result = $client->get()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CrowdSourcedLyricsSDK::test([
+    "entity" => ["get" => ["test01" => ["id" => "test01"]]],
+]);
+$get = $client->Get()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Get(nil).Load(
 ### Ruby
 
 ```ruby
-client = CrowdSourcedLyricsSDK.test
-result = client.get.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CrowdSourcedLyricsSDK.test({
+  "entity" => { "get" => { "test01" => { "id" => "test01" } } },
+})
+get = client.Get.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:get():load({ id = "test01" })
+local result, err = client:Get():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

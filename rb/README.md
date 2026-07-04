@@ -32,8 +32,9 @@ client = CrowdSourcedLyricsSDK.new
 
 ```ruby
 begin
-  result = client.get.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Get record (raises on error).
+  get = client.Get.load({ "id" => "example_id" })
+  puts get
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CrowdSourcedLyricsSDK.test
+client = CrowdSourcedLyricsSDK.test({
+  "entity" => { "get" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.get.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+get = client.Get.load({ "id" => "test01" })
+puts get
 ```
 
 ### Use a custom fetch function
@@ -224,7 +229,7 @@ API path: `/get`
 
 ### Get
 
-Create an instance: `const get = client.get`
+Create an instance: `get = client.Get`
 
 #### Operations
 
@@ -246,8 +251,9 @@ Create an instance: `const get = client.get`
 
 #### Example: Load
 
-```ts
-const get = await client.get.load({ id: 'get_id' })
+```ruby
+# load returns the bare Get record (raises on error).
+get = client.Get.load({ "id" => "get_id" })
 ```
 
 
@@ -322,7 +328,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-get = client.get
+get = client.Get
 get.load({ "id" => "example_id" })
 
 # get.data_get now returns the loaded get data

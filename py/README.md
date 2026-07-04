@@ -33,10 +33,12 @@ client = CrowdSourcedLyricsSDK()
 
 ### 3. Load a get
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.get.load({"id": "example_id"})
-    print(result)
+    get = client.Get().load({"id": "example_id"})
+    print(get)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CrowdSourcedLyricsSDK.test()
 
-result = client.get.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+get = client.Get().load({"id": "test01"})
+# get contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -224,7 +227,7 @@ API path: `/get`
 
 ### Get
 
-Create an instance: `const get = client.get`
+Create an instance: `get = client.Get()`
 
 #### Operations
 
@@ -246,8 +249,8 @@ Create an instance: `const get = client.get`
 
 #### Example: Load
 
-```ts
-const get = await client.get.load({ id: 'get_id' })
+```python
+get = client.Get().load({"id": "get_id"})
 ```
 
 
@@ -321,7 +324,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-get = client.get
+get = client.Get()
 get.load({"id": "example_id"})
 
 # get.data_get() now returns the loaded get data

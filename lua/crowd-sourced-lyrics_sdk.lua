@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:get():list() / client:get():load({ id = ... })
-function CrowdSourcedLyricsSDK:get(data)
+-- Idiomatic facade: client:Get():list() / client:Get():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CrowdSourcedLyricsSDK:Get(data)
   local EntityMod = require("entity.get_entity")
   if data == nil then
     if self._get == nil then
@@ -253,12 +254,6 @@ function CrowdSourcedLyricsSDK:get(data)
     end
     return self._get
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:get() instead.
-function CrowdSourcedLyricsSDK:Get(data)
-  local EntityMod = require("entity.get_entity")
   return EntityMod.new(self, data)
 end
 

@@ -233,10 +233,10 @@ class CrowdSourcedLyricsSDK
 
     private $_get = null;
 
-    // Idiomatic facade: $client->get()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Get() (PHP method
-    // names are case-insensitive).
-    public function get($data = null)
+    // Canonical facade: $client->Get()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get()
+    // resolves here too.
+    public function Get($data = null)
     {
         require_once __DIR__ . '/entity/get_entity.php';
         if ($data === null) {

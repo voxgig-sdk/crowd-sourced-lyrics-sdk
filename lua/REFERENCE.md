@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## GetEntity
 
 ```lua
-local get = client:get(nil)
+local get = client:Get(nil)
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ local get = client:get(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:get():load({ id = "get_id" })
+local result, err = client:Get():load({ id = "get_id" })
 ```
 
 ### Common Methods

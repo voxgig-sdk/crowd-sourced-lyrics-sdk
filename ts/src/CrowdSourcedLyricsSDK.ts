@@ -204,14 +204,7 @@ class CrowdSourcedLyricsSDK {
 
 
 
-  _get?: GetEntity
-
-  // Idiomatic facade: `client.get.list()` / `client.get.load({ id })`.
-  get get(): GetEntity {
-    return (this._get ??= new GetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get` instead. */
+  // Entity access: `client.Get().list()` / `client.Get().load({ id })`.
   Get(data?: any) {
     const self = this
     return new GetEntity(self,data)
