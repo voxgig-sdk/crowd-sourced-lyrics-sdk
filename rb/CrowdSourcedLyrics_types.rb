@@ -41,7 +41,7 @@ Get = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Get#load (any subset of Get fields).
+# Request payload for Get#load.
 #
 # @!attribute [rw] album_name
 #   @return [String, nil]
@@ -53,7 +53,7 @@ Get = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] id
-#   @return [Integer, nil]
+#   @return [Integer]
 #
 # @!attribute [rw] plain_lyric
 #   @return [String, nil]

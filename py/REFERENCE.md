@@ -8,7 +8,7 @@ Complete API reference for the CrowdSourcedLyrics Python SDK.
 ### Constructor
 
 ```python
-from crowd-sourced-lyrics_sdk import CrowdSourcedLyricsSDK
+from crowdsourcedlyrics_sdk import CrowdSourcedLyricsSDK
 
 client = CrowdSourcedLyricsSDK(options)
 ```
@@ -87,13 +87,13 @@ get = client.Get()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | ``$STRING`` | No |  |
-| `artist_name` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `plain_lyric` | ``$STRING`` | No |  |
-| `synced_lyric` | ``$STRING`` | No |  |
-| `track_name` | ``$STRING`` | No |  |
+| `album_name` | `str` | No |  |
+| `artist_name` | `str` | No |  |
+| `duration` | `int` | No |  |
+| `id` | `int` | No |  |
+| `plain_lyric` | `str` | No |  |
+| `synced_lyric` | `str` | No |  |
+| `track_name` | `str` | No |  |
 
 ### Operations
 

@@ -8,7 +8,7 @@ Complete API reference for the CrowdSourcedLyrics Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'crowd-sourced-lyrics_sdk'
+require_relative 'CrowdSourcedLyrics_sdk'
 
 client = CrowdSourcedLyricsSDK.new(options)
 ```
@@ -93,13 +93,13 @@ get = client.Get
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | ``$STRING`` | No |  |
-| `artist_name` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `plain_lyric` | ``$STRING`` | No |  |
-| `synced_lyric` | ``$STRING`` | No |  |
-| `track_name` | ``$STRING`` | No |  |
+| `album_name` | `String` | No |  |
+| `artist_name` | `String` | No |  |
+| `duration` | `Integer` | No |  |
+| `id` | `Integer` | No |  |
+| `plain_lyric` | `String` | No |  |
+| `synced_lyric` | `String` | No |  |
+| `track_name` | `String` | No |  |
 
 ### Operations
 

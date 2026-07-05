@@ -116,13 +116,13 @@ const get = client.Get()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | ``$STRING`` | No |  |
-| `artist_name` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `plain_lyric` | ``$STRING`` | No |  |
-| `synced_lyric` | ``$STRING`` | No |  |
-| `track_name` | ``$STRING`` | No |  |
+| `album_name` | `string` | No |  |
+| `artist_name` | `string` | No |  |
+| `duration` | `number` | No |  |
+| `id` | `number` | No |  |
+| `plain_lyric` | `string` | No |  |
+| `synced_lyric` | `string` | No |  |
+| `track_name` | `string` | No |  |
 
 ### Operations
 
@@ -131,7 +131,7 @@ const get = client.Get()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Get().load({ id: 'get_id' })
+const result = await client.Get().load({ id: 1 })
 ```
 
 ### Common Methods

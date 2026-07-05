@@ -26,11 +26,14 @@ class Get(TypedDict, total=False):
     track_name: str
 
 
-class GetLoadMatch(TypedDict, total=False):
+class GetLoadMatchRequired(TypedDict):
+    id: int
+
+
+class GetLoadMatch(GetLoadMatchRequired, total=False):
     album_name: str
     artist_name: str
     duration: int
-    id: int
     plain_lyric: str
     synced_lyric: str
     track_name: str

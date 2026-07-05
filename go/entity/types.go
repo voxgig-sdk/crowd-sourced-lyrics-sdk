@@ -19,13 +19,12 @@ type Get struct {
 	TrackName *string `json:"track_name,omitempty"`
 }
 
-// GetLoadMatch mirrors the get fields as an all-optional match
-// filter (Go analog of Partial<Get>).
+// GetLoadMatch is the typed request payload for Get.LoadTyped.
 type GetLoadMatch struct {
 	AlbumName *string `json:"album_name,omitempty"`
 	ArtistName *string `json:"artist_name,omitempty"`
 	Duration *int `json:"duration,omitempty"`
-	Id *int `json:"id,omitempty"`
+	Id int `json:"id"`
 	PlainLyric *string `json:"plain_lyric,omitempty"`
 	SyncedLyric *string `json:"synced_lyric,omitempty"`
 	TrackName *string `json:"track_name,omitempty"`

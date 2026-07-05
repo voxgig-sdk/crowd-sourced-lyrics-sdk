@@ -15,5 +15,13 @@ export interface Get {
   track_name?: string
 }
 
-export type GetLoadMatch = Partial<Get>
+export interface GetLoadMatch {
+  album_name?: string
+  artist_name?: string
+  duration?: number
+  id: number
+  plain_lyric?: string
+  synced_lyric?: string
+  track_name?: string
+}
 

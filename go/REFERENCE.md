@@ -97,13 +97,13 @@ get := client.Get(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | ``$STRING`` | No |  |
-| `artist_name` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `plain_lyric` | ``$STRING`` | No |  |
-| `synced_lyric` | ``$STRING`` | No |  |
-| `track_name` | ``$STRING`` | No |  |
+| `album_name` | `string` | No |  |
+| `artist_name` | `string` | No |  |
+| `duration` | `int` | No |  |
+| `id` | `int` | No |  |
+| `plain_lyric` | `string` | No |  |
+| `synced_lyric` | `string` | No |  |
+| `track_name` | `string` | No |  |
 
 ### Operations
 

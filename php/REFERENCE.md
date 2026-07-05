@@ -8,7 +8,7 @@ Complete API reference for the CrowdSourcedLyrics PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/crowd-sourced-lyrics_sdk.php';
+require_once __DIR__ . '/crowdsourcedlyrics_sdk.php';
 
 $client = new CrowdSourcedLyricsSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = CrowdSourcedLyricsSDK::test();
 
 Create a new `GetEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): CrowdSourcedLyricsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,13 +92,13 @@ $get = $client->Get();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | ``$STRING`` | No |  |
-| `artist_name` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `plain_lyric` | ``$STRING`` | No |  |
-| `synced_lyric` | ``$STRING`` | No |  |
-| `track_name` | ``$STRING`` | No |  |
+| `album_name` | `string` | No |  |
+| `artist_name` | `string` | No |  |
+| `duration` | `int` | No |  |
+| `id` | `int` | No |  |
+| `plain_lyric` | `string` | No |  |
+| `synced_lyric` | `string` | No |  |
+| `track_name` | `string` | No |  |
 
 ### Operations
 
@@ -112,19 +112,19 @@ $result = $client->Get()->load(["id" => "get_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -133,7 +133,7 @@ Set the entity match criteria.
 Create a new `GetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

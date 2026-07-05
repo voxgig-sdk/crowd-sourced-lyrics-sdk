@@ -221,7 +221,7 @@ class CrowdSourcedLyricsSDK:
 
 
     def Get(self, data=None) -> "GetEntity":
-        """Entity factory: client.Get().list({}) / client.Get().load({"id": ...})."""
+        """Entity factory: client.Get().list() / client.Get().load({"id": ...})."""
         from entity.get_entity import GetEntity
         return GetEntity(self, data)
 

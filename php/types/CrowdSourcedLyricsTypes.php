@@ -24,13 +24,13 @@ class Get
     public ?string $track_name = null;
 }
 
-/** Match filter for Get#load (any subset of Get fields). */
+/** Request payload for Get#load. */
 class GetLoadMatch
 {
     public ?string $album_name = null;
     public ?string $artist_name = null;
     public ?int $duration = null;
-    public ?int $id = null;
+    public int $id;
     public ?string $plain_lyric = null;
     public ?string $synced_lyric = null;
     public ?string $track_name = null;
