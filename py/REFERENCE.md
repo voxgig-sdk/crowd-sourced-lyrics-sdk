@@ -102,7 +102,7 @@ get = client.Get()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Get().load({"id": "get_id"})
+result = client.Get().load({"id": 1})
 ```
 
 ### Common Methods

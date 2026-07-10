@@ -15,9 +15,9 @@ main: {
           url: "https://lrclib.net/api"
         }
       ]
+      summary: "Crowd Sourced Lyrics API - A community-driven API for accessing synchronized lyrics (LRC format) for songs"
       title: "Crowd Sourced Lyrics API"
       version: "1.0.0"
+      website: "https://lrclib.net"
     }
   }
-}
-

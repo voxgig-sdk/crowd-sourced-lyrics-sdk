@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -279,14 +276,17 @@
           "url": "https://lrclib.net/docs"
         },
         "description": "Crowd Sourced Lyrics API - A community-driven API for accessing synchronized lyrics (LRC format) for songs",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://lrclib.net/api"
           }
         ],
+        "summary": "Crowd Sourced Lyrics API - A community-driven API for accessing synchronized lyrics (LRC format) for songs",
         "title": "Crowd Sourced Lyrics API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://lrclib.net"
       },
       "option": {},
       "target": {
@@ -339,6 +339,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -389,6 +392,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

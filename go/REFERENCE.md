@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 get := client.Get(nil)
+fmt.Println(get.GetName()) // "get"
 ```
 
 ### Fields
@@ -112,7 +113,11 @@ get := client.Get(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Get(nil).Load(map[string]any{"id": "get_id"}, nil)
+result, err := client.Get(nil).Load(map[string]any{"id": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

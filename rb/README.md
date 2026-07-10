@@ -35,7 +35,7 @@ client = CrowdSourcedLyricsSDK.new
 ```ruby
 begin
   # load returns the bare Get record (raises on error).
-  get = client.Get.load({ "id" => "example_id" })
+  get = client.Get.load({ "id" => 1 })
   puts get
 rescue => err
   warn "load failed: #{err}"
@@ -280,7 +280,7 @@ Create an instance: `get = client.Get`
 
 ```ruby
 # load returns the bare Get record (raises on error).
-get = client.Get.load({ "id" => "get_id" })
+get = client.Get.load({ "id" => 1 })
 ```
 
 

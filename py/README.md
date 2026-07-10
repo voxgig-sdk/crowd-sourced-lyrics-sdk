@@ -42,7 +42,7 @@ client = CrowdSourcedLyricsSDK()
 
 ```python
 try:
-    get = client.Get().load({"id": "example_id"})
+    get = client.Get().load({"id": 1})
     print(get)
 except Exception as err:
     print(f"load failed: {err}")
@@ -282,7 +282,7 @@ Create an instance: `get = client.Get()`
 #### Example: Load
 
 ```python
-get = client.Get().load({"id": "get_id"})
+get = client.Get().load({"id": 1})
 ```
 
 

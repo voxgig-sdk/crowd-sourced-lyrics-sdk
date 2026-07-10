@@ -105,7 +105,7 @@ local get = client:Get(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Get():load({ id = "get_id" })
+local result, err = client:Get():load({ id = 1 })
 ```
 
 ### Common Methods

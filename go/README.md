@@ -300,7 +300,7 @@ Create an instance: `get := client.Get(nil)`
 #### Example: Load
 
 ```go
-get, err := client.Get(nil).Load(map[string]any{"id": "get_id"}, nil)
+get, err := client.Get(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

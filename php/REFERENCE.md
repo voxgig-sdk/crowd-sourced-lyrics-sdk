@@ -107,7 +107,7 @@ $get = $client->Get();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Get()->load(["id" => "get_id"]);
+$result = $client->Get()->load(["id" => 1]);
 ```
 
 ### Common Methods

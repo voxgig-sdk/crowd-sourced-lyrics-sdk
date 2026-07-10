@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a get
 
 ```lua
-local get, err = client:Get():load({ id = "example_id" })
+local get, err = client:Get():load({ id = 1 })
 if err then error(err) end
 print(get)
 ```
@@ -267,7 +267,7 @@ Create an instance: `local get = client:Get(nil)`
 #### Example: Load
 
 ```lua
-local get, err = client:Get():load({ id = "get_id" })
+local get, err = client:Get():load({ id = 1 })
 ```
 
 

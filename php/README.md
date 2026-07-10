@@ -36,7 +36,7 @@ $client = new CrowdSourcedLyricsSDK();
 ```php
 try {
     // load() returns the bare Get record (throws on error).
-    $get = $client->Get()->load(["id" => "example_id"]);
+    $get = $client->Get()->load(["id" => 1]);
     print_r($get);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -290,7 +290,7 @@ Create an instance: `$get = $client->Get();`
 
 ```php
 // load() returns the bare Get record (throws on error).
-$get = $client->Get()->load(["id" => "get_id"]);
+$get = $client->Get()->load(["id" => 1]);
 ```
 
 
