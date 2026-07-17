@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- CrowdSourcedLyrics SDK configuration
 
 local function make_config()
   return {

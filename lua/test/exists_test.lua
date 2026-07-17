@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- CrowdSourcedLyrics SDK exists test
 
 local sdk = require("crowd-sourced-lyrics_sdk")
 
