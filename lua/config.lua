@@ -26,14 +26,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "album_name",
+            ["name"] = "albumName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "artist_name",
+            ["name"] = "artistName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -54,21 +54,21 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "plain_lyric",
+            ["name"] = "plainLyrics",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 4,
           },
           {
             ["active"] = true,
-            ["name"] = "synced_lyric",
+            ["name"] = "syncedLyrics",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 5,
           },
           {
             ["active"] = true,
-            ["name"] = "track_name",
+            ["name"] = "trackName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 6,
@@ -121,6 +121,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/get",
                 ["parts"] = {

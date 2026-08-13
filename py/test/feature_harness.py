@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CrowdSourcedLyricsControl
-from core.error import CrowdSourcedLyricsError
-from core.result import CrowdSourcedLyricsResult
-from core.spec import CrowdSourcedLyricsSpec
+from crowdsourcedlyrics_sdk.config import make_config
+from crowdsourcedlyrics_sdk.features import _make_feature
+from crowdsourcedlyrics_sdk.core.control import CrowdSourcedLyricsControl
+from crowdsourcedlyrics_sdk.core.error import CrowdSourcedLyricsError
+from crowdsourcedlyrics_sdk.core.result import CrowdSourcedLyricsResult
+from crowdsourcedlyrics_sdk.core.spec import CrowdSourcedLyricsSpec
 
 
 # True when this SDK was generated with the named feature.

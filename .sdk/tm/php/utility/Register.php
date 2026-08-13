@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ CrowdSourcedLyricsUtility::setRegistrar(function (CrowdSourcedLyricsUtility $u):
     $u->prepare_params = [CrowdSourcedLyricsPrepareParams::class, 'call'];
     $u->prepare_path = [CrowdSourcedLyricsPreparePath::class, 'call'];
     $u->prepare_query = [CrowdSourcedLyricsPrepareQuery::class, 'call'];
+    $u->graphql_body = [CrowdSourcedLyricsGraphql::class, 'body'];
+    $u->graphql_errors = [CrowdSourcedLyricsGraphql::class, 'errors'];
     $u->result_basic = [CrowdSourcedLyricsResultBasic::class, 'call'];
     $u->result_body = [CrowdSourcedLyricsResultBody::class, 'call'];
     $u->result_headers = [CrowdSourcedLyricsResultHeaders::class, 'call'];

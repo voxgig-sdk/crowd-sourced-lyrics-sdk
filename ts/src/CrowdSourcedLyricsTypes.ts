@@ -6,22 +6,22 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Get {
-  album_name?: string
-  artist_name?: string
+  albumName?: string
+  artistName?: string
   duration?: number
   id?: number
-  plain_lyric?: string
-  synced_lyric?: string
-  track_name?: string
+  plainLyrics?: string
+  syncedLyrics?: string
+  trackName?: string
 }
 
 export interface GetLoadMatch {
-  album_name?: string
-  artist_name?: string
+  albumName?: string
+  artistName?: string
   duration?: number
   id: number
-  plain_lyric?: string
-  synced_lyric?: string
-  track_name?: string
+  plainLyrics?: string
+  syncedLyrics?: string
+  trackName?: string
 }
 

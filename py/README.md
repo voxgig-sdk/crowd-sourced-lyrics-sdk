@@ -38,7 +38,7 @@ client = CrowdSourcedLyricsSDK()
 
 ### 3. Load a get
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CrowdSourcedLyricsSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 get = client.Get().load({"id": "test01"})
 # get contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -240,13 +241,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `album_name` |  |
-| `artist_name` |  |
+| `albumName` |  |
+| `artistName` |  |
 | `duration` |  |
 | `id` |  |
-| `plain_lyric` |  |
-| `synced_lyric` |  |
-| `track_name` |  |
+| `plainLyrics` |  |
+| `syncedLyrics` |  |
+| `trackName` |  |
 
 Operations: Load.
 
@@ -271,13 +272,13 @@ Create an instance: `get = client.Get()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album_name` | `str` |  |
-| `artist_name` | `str` |  |
+| `albumName` | `str` |  |
+| `artistName` | `str` |  |
 | `duration` | `int` |  |
 | `id` | `int` |  |
-| `plain_lyric` | `str` |  |
-| `synced_lyric` | `str` |  |
-| `track_name` | `str` |  |
+| `plainLyrics` | `str` |  |
+| `syncedLyrics` | `str` |  |
+| `trackName` | `str` |  |
 
 #### Example: Load
 

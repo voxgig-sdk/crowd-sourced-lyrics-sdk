@@ -26,14 +26,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "album_name",
+						"name": "albumName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "artist_name",
+						"name": "artistName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -54,21 +54,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "plain_lyric",
+						"name": "plainLyrics",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "synced_lyric",
+						"name": "syncedLyrics",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
-						"name": "track_name",
+						"name": "trackName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 6,
@@ -121,6 +121,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/get",
 								"parts": []any{
@@ -141,7 +142,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

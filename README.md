@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new CrowdSourcedLyricsSDK()
-const get = await client.Get().load()
+const get = await client.Get().load({ id: 1 })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CrowdSourcedLyricsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CrowdSourcedLyricsSDK.test({
+  entity: {
+    get: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const get = await client.Get().load({ id: 1 })
-// get is a bare Get populated with mock data
+// get is the Get entity, populated with mock data
+// — call get.data() for the record itself
 console.log(get)
 ```
 
@@ -182,7 +191,7 @@ require_once 'crowdsourcedlyrics_sdk.php';
 $client = new CrowdSourcedLyricsSDK();
 
 
-// Load a specific get (returns the bare record; throws on error)
+// Load a specific get (returns the ENTITY; call data_get() for the record; throws on error)
 $get = $client->Get()->load(["id" => 1]);
 print_r($get);
 ```
@@ -210,7 +219,7 @@ require_relative "CrowdSourcedLyrics_sdk"
 client = CrowdSourcedLyricsSDK.new
 
 
-# Load a specific get (returns the bare record; raises on error)
+# Load a specific get (returns the ENTITY; call data_get for the record)
 get = client.Get.load({ "id" => 1 })
 puts get
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://lrclib.net/docs](https://lrclib.net/docs)
 

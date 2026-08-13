@@ -43,8 +43,8 @@ class CrowdSourcedLyricsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CROWDSOURCEDLYRICS_TEST_LIVE');
-        $override = self::getenv('CROWDSOURCEDLYRICS_TEST_OVERRIDE');
+        $live = self::getenv('CROWD_SOURCED_LYRICS_TEST_LIVE');
+        $override = self::getenv('CROWD_SOURCED_LYRICS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CrowdSourcedLyricsTestRunner
             }
         }
 
-        $explain = self::getenv('CROWDSOURCEDLYRICS_TEST_EXPLAIN');
+        $explain = self::getenv('CROWD_SOURCED_LYRICS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CROWDSOURCEDLYRICS_TEST_EXPLAIN'] = $explain;
+            $m['CROWD_SOURCED_LYRICS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

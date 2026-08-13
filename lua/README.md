@@ -225,13 +225,13 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `album_name` |  |
-| `artist_name` |  |
+| `albumName` |  |
+| `artistName` |  |
 | `duration` |  |
 | `id` |  |
-| `plain_lyric` |  |
-| `synced_lyric` |  |
-| `track_name` |  |
+| `plainLyrics` |  |
+| `syncedLyrics` |  |
+| `trackName` |  |
 
 Operations: Load.
 
@@ -256,13 +256,13 @@ Create an instance: `local get = client:Get(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album_name` | `string` |  |
-| `artist_name` | `string` |  |
+| `albumName` | `string` |  |
+| `artistName` | `string` |  |
 | `duration` | `number` |  |
 | `id` | `number` |  |
-| `plain_lyric` | `string` |  |
-| `synced_lyric` | `string` |  |
-| `track_name` | `string` |  |
+| `plainLyrics` | `string` |  |
+| `syncedLyrics` | `string` |  |
+| `trackName` | `string` |  |
 
 #### Example: Load
 

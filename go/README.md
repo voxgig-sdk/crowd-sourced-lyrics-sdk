@@ -258,13 +258,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"album_name"` |  |
-| `"artist_name"` |  |
+| `"albumName"` |  |
+| `"artistName"` |  |
 | `"duration"` |  |
 | `"id"` |  |
-| `"plain_lyric"` |  |
-| `"synced_lyric"` |  |
-| `"track_name"` |  |
+| `"plainLyrics"` |  |
+| `"syncedLyrics"` |  |
+| `"trackName"` |  |
 
 Operations: Load.
 
@@ -289,13 +289,13 @@ Create an instance: `get := client.Get(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album_name` | `string` |  |
-| `artist_name` | `string` |  |
+| `albumName` | `string` |  |
+| `artistName` | `string` |  |
 | `duration` | `int` |  |
 | `id` | `int` |  |
-| `plain_lyric` | `string` |  |
-| `synced_lyric` | `string` |  |
-| `track_name` | `string` |  |
+| `plainLyrics` | `string` |  |
+| `syncedLyrics` | `string` |  |
+| `trackName` | `string` |  |
 
 #### Example: Load
 

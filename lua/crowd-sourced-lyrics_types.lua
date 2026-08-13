@@ -7,22 +7,22 @@
 -- edit by hand.
 
 ---@class Get
----@field album_name? string
----@field artist_name? string
+---@field albumName? string
+---@field artistName? string
 ---@field duration? number
 ---@field id? number
----@field plain_lyric? string
----@field synced_lyric? string
----@field track_name? string
+---@field plainLyrics? string
+---@field syncedLyrics? string
+---@field trackName? string
 
 ---@class GetLoadMatch
----@field album_name? string
----@field artist_name? string
+---@field albumName? string
+---@field artistName? string
 ---@field duration? number
 ---@field id number
----@field plain_lyric? string
----@field synced_lyric? string
----@field track_name? string
+---@field plainLyrics? string
+---@field syncedLyrics? string
+---@field trackName? string
 
 local M = {}
 

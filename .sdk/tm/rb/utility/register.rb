@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CrowdSourcedLyricsUtility.registrar = ->(u) {
   u.prepare_params = CrowdSourcedLyricsUtilities::PrepareParams
   u.prepare_path = CrowdSourcedLyricsUtilities::PreparePath
   u.prepare_query = CrowdSourcedLyricsUtilities::PrepareQuery
+  u.graphql_body = CrowdSourcedLyricsUtilities::GraphqlBody
+  u.graphql_errors = CrowdSourcedLyricsUtilities::GraphqlErrors
   u.result_basic = CrowdSourcedLyricsUtilities::ResultBasic
   u.result_body = CrowdSourcedLyricsUtilities::ResultBody
   u.result_headers = CrowdSourcedLyricsUtilities::ResultHeaders

@@ -87,13 +87,13 @@ get = client.Get()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | `str` | No |  |
-| `artist_name` | `str` | No |  |
+| `albumName` | `str` | No |  |
+| `artistName` | `str` | No |  |
 | `duration` | `int` | No |  |
 | `id` | `int` | No |  |
-| `plain_lyric` | `str` | No |  |
-| `synced_lyric` | `str` | No |  |
-| `track_name` | `str` | No |  |
+| `plainLyrics` | `str` | No |  |
+| `syncedLyrics` | `str` | No |  |
+| `trackName` | `str` | No |  |
 
 ### Operations
 

@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = CrowdSourcedLyricsSDK.test()
 
 const get = await client.Get().load({ id: 1 })
-// get is a bare entity populated with mock response data
+// get is the entity, populated with mock response data
+// — call get.data() for the record itself
 console.log(get)
 ```
 
@@ -284,13 +285,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `album_name` |  |
-| `artist_name` |  |
+| `albumName` |  |
+| `artistName` |  |
 | `duration` |  |
 | `id` |  |
-| `plain_lyric` |  |
-| `synced_lyric` |  |
-| `track_name` |  |
+| `plainLyrics` |  |
+| `syncedLyrics` |  |
+| `trackName` |  |
 
 Operations: load.
 
@@ -315,13 +316,13 @@ Create an instance: `const get = client.Get()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album_name` | `string` |  |
-| `artist_name` | `string` |  |
+| `albumName` | `string` |  |
+| `artistName` | `string` |  |
 | `duration` | `number` |  |
 | `id` | `number` |  |
-| `plain_lyric` | `string` |  |
-| `synced_lyric` | `string` |  |
-| `track_name` | `string` |  |
+| `plainLyrics` | `string` |  |
+| `syncedLyrics` | `string` |  |
+| `trackName` | `string` |  |
 
 #### Example: Load
 

@@ -60,11 +60,11 @@ function get_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["CROWDSOURCEDLYRICS_TEST_GET_ENTID"] = {},
-    ["CROWDSOURCEDLYRICS_TEST_LIVE"] = "FALSE",
+    ["CROWD_SOURCED_LYRICS_TEST_GET_ENTID"] = {},
+    ["CROWD_SOURCED_LYRICS_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE"
+  local live = env["CROWD_SOURCED_LYRICS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

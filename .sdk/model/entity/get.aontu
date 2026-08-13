@@ -6,12 +6,12 @@ main: kit: entity: get: {
 
   fields: [
     {
-      name: "album_name"
+      name: "albumName"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "artist_name"
+      name: "artistName"
       req: false
       type: "`$STRING`"
     }
@@ -26,17 +26,17 @@ main: kit: entity: get: {
       type: "`$INTEGER`"
     }
     {
-      name: "plain_lyric"
+      name: "plainLyrics"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "synced_lyric"
+      name: "syncedLyrics"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "track_name"
+      name: "trackName"
       req: false
       type: "`$STRING`"
     }

@@ -29,7 +29,7 @@ describe("GetEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set CROWDSOURCEDLYRICS_TEST_GET_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set CROWD_SOURCED_LYRICS_TEST_GET_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -49,7 +49,7 @@ describe("GetEntity", function()
     }
     local get_ref01_data_dt0_loaded, err = get_ref01_ent:load(get_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local get_ref01_data_dt0_load_result = helpers.to_map(get_ref01_data_dt0_loaded)
+    local get_ref01_data_dt0_load_result = helpers.to_map(type(get_ref01_data_dt0_loaded) == 'table' and get_ref01_data_dt0_loaded.data_get and get_ref01_data_dt0_loaded:data_get() or get_ref01_data_dt0_loaded)
     assert.is_not_nil(get_ref01_data_dt0_load_result)
     assert.are.equal(get_ref01_data_dt0_load_result["id"], get_ref01_data["id"])
 
@@ -88,22 +88,22 @@ function get_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("CROWDSOURCEDLYRICS_TEST_GET_ENTID")
+  local entid_env_raw = os.getenv("CROWD_SOURCED_LYRICS_TEST_GET_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["CROWDSOURCEDLYRICS_TEST_GET_ENTID"] = idmap,
-    ["CROWDSOURCEDLYRICS_TEST_LIVE"] = "FALSE",
-    ["CROWDSOURCEDLYRICS_TEST_EXPLAIN"] = "FALSE",
+    ["CROWD_SOURCED_LYRICS_TEST_GET_ENTID"] = idmap,
+    ["CROWD_SOURCED_LYRICS_TEST_LIVE"] = "FALSE",
+    ["CROWD_SOURCED_LYRICS_TEST_EXPLAIN"] = "FALSE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["CROWDSOURCEDLYRICS_TEST_GET_ENTID"])
+    env["CROWD_SOURCED_LYRICS_TEST_GET_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE" then
+  if env["CROWD_SOURCED_LYRICS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
       },
@@ -112,13 +112,13 @@ function get_basic_setup(extra)
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["CROWDSOURCEDLYRICS_TEST_LIVE"] == "TRUE"
+  local live = env["CROWD_SOURCED_LYRICS_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["CROWDSOURCEDLYRICS_TEST_EXPLAIN"] == "TRUE",
+    explain = env["CROWD_SOURCED_LYRICS_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

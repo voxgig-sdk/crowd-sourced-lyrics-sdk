@@ -26,8 +26,8 @@ import {
 describe('GetEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CROWDSOURCEDLYRICS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CROWDSOURCEDLYRICS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CROWD_SOURCED_LYRICS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CROWD_SOURCED_LYRICS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CrowdSourcedLyricsSDK.test()
@@ -63,7 +63,7 @@ describe('GetEntity', async () => {
     const get_ref01_ent = client.Get()
     const get_ref01_match_dt0: any = {}
     get_ref01_match_dt0.id = get_ref01_data.id
-    const get_ref01_data_dt0 = await get_ref01_ent.load(get_ref01_match_dt0)
+    const get_ref01_data_dt0 = (await get_ref01_ent.load(get_ref01_match_dt0)).data()
     assert(get_ref01_data_dt0.id === get_ref01_data.id)
 
 

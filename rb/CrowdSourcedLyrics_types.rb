@@ -10,10 +10,10 @@
 
 # Get entity data model.
 #
-# @!attribute [rw] album_name
+# @!attribute [rw] albumName
 #   @return [String, nil]
 #
-# @!attribute [rw] artist_name
+# @!attribute [rw] artistName
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -22,31 +22,31 @@
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] plain_lyric
+# @!attribute [rw] plainLyrics
 #   @return [String, nil]
 #
-# @!attribute [rw] synced_lyric
+# @!attribute [rw] syncedLyrics
 #   @return [String, nil]
 #
-# @!attribute [rw] track_name
+# @!attribute [rw] trackName
 #   @return [String, nil]
 Get = Struct.new(
-  :album_name,
-  :artist_name,
+  :albumName,
+  :artistName,
   :duration,
   :id,
-  :plain_lyric,
-  :synced_lyric,
-  :track_name,
+  :plainLyrics,
+  :syncedLyrics,
+  :trackName,
   keyword_init: true
 )
 
 # Request payload for Get#load.
 #
-# @!attribute [rw] album_name
+# @!attribute [rw] albumName
 #   @return [String, nil]
 #
-# @!attribute [rw] artist_name
+# @!attribute [rw] artistName
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -55,22 +55,22 @@ Get = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer]
 #
-# @!attribute [rw] plain_lyric
+# @!attribute [rw] plainLyrics
 #   @return [String, nil]
 #
-# @!attribute [rw] synced_lyric
+# @!attribute [rw] syncedLyrics
 #   @return [String, nil]
 #
-# @!attribute [rw] track_name
+# @!attribute [rw] trackName
 #   @return [String, nil]
 GetLoadMatch = Struct.new(
-  :album_name,
-  :artist_name,
+  :albumName,
+  :artistName,
   :duration,
   :id,
-  :plain_lyric,
-  :synced_lyric,
-  :track_name,
+  :plainLyrics,
+  :syncedLyrics,
+  :trackName,
   keyword_init: true
 )
 

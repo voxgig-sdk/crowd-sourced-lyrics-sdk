@@ -90,13 +90,13 @@ local get = client:Get(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album_name` | `string` | No |  |
-| `artist_name` | `string` | No |  |
+| `albumName` | `string` | No |  |
+| `artistName` | `string` | No |  |
 | `duration` | `number` | No |  |
 | `id` | `number` | No |  |
-| `plain_lyric` | `string` | No |  |
-| `synced_lyric` | `string` | No |  |
-| `track_name` | `string` | No |  |
+| `plainLyrics` | `string` | No |  |
+| `syncedLyrics` | `string` | No |  |
+| `trackName` | `string` | No |  |
 
 ### Operations
 

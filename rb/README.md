@@ -34,7 +34,7 @@ client = CrowdSourcedLyricsSDK.new
 
 ```ruby
 begin
-  # load returns the bare Get record (raises on error).
+  # load returns the ENTITY — call data_get for the Get record (raises on error).
   get = client.Get.load({ "id" => 1 })
   puts get
 rescue => err
@@ -120,7 +120,8 @@ client = CrowdSourcedLyricsSDK.test({
   "entity" => { "get" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 get = client.Get.load({ "id" => "test01" })
 puts get
 ```
@@ -237,13 +238,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `album_name` |  |
-| `artist_name` |  |
+| `albumName` |  |
+| `artistName` |  |
 | `duration` |  |
 | `id` |  |
-| `plain_lyric` |  |
-| `synced_lyric` |  |
-| `track_name` |  |
+| `plainLyrics` |  |
+| `syncedLyrics` |  |
+| `trackName` |  |
 
 Operations: Load.
 
@@ -268,18 +269,18 @@ Create an instance: `get = client.Get`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album_name` | `String` |  |
-| `artist_name` | `String` |  |
+| `albumName` | `String` |  |
+| `artistName` | `String` |  |
 | `duration` | `Integer` |  |
 | `id` | `Integer` |  |
-| `plain_lyric` | `String` |  |
-| `synced_lyric` | `String` |  |
-| `track_name` | `String` |  |
+| `plainLyrics` | `String` |  |
+| `syncedLyrics` | `String` |  |
+| `trackName` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Get record (raises on error).
+# load returns the ENTITY — call data_get for the Get record (raises on error).
 get = client.Get.load({ "id" => 1 })
 ```
 

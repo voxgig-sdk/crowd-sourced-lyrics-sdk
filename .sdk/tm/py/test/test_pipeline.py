@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import CrowdSourcedLyricsSDK
-from core.error import CrowdSourcedLyricsError
-from core.result import CrowdSourcedLyricsResult
-from core.response import CrowdSourcedLyricsResponse
-from core.spec import CrowdSourcedLyricsSpec
-from feature.base_feature import CrowdSourcedLyricsBaseFeature
+from projectname_sdk.core.error import CrowdSourcedLyricsError
+from projectname_sdk.core.result import CrowdSourcedLyricsResult
+from projectname_sdk.core.response import CrowdSourcedLyricsResponse
+from projectname_sdk.core.spec import CrowdSourcedLyricsSpec
+from projectname_sdk.feature.base_feature import CrowdSourcedLyricsBaseFeature
 
 
 def _client():

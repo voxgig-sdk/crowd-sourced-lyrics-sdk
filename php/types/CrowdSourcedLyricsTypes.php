@@ -15,24 +15,24 @@ declare(strict_types=1);
 /** Get entity data model. */
 class Get
 {
-    public ?string $album_name = null;
-    public ?string $artist_name = null;
+    public ?string $albumName = null;
+    public ?string $artistName = null;
     public ?int $duration = null;
     public ?int $id = null;
-    public ?string $plain_lyric = null;
-    public ?string $synced_lyric = null;
-    public ?string $track_name = null;
+    public ?string $plainLyrics = null;
+    public ?string $syncedLyrics = null;
+    public ?string $trackName = null;
 }
 
 /** Request payload for Get#load. */
 class GetLoadMatch
 {
-    public ?string $album_name = null;
-    public ?string $artist_name = null;
+    public ?string $albumName = null;
+    public ?string $artistName = null;
     public ?int $duration = null;
     public int $id;
-    public ?string $plain_lyric = null;
-    public ?string $synced_lyric = null;
-    public ?string $track_name = null;
+    public ?string $plainLyrics = null;
+    public ?string $syncedLyrics = null;
+    public ?string $trackName = null;
 }
 

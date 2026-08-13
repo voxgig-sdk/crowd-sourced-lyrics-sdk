@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CrowdSourcedLyrics SDK exists test
 
 import pytest
 from crowdsourcedlyrics_sdk import CrowdSourcedLyricsSDK

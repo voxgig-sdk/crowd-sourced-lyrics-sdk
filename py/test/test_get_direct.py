@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from crowdsourcedlyrics_sdk.utility.voxgig_struct import voxgig_struct as vs
 from crowdsourcedlyrics_sdk import CrowdSourcedLyricsSDK
-from core import helpers
+from crowdsourcedlyrics_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _get_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CROWDSOURCEDLYRICS_TEST_GET_ENTID": {},
-        "CROWDSOURCEDLYRICS_TEST_LIVE": "FALSE",
+        "CROWD_SOURCED_LYRICS_TEST_GET_ENTID": {},
+        "CROWD_SOURCED_LYRICS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("CROWDSOURCEDLYRICS_TEST_LIVE") == "TRUE"
+    live = env.get("CROWD_SOURCED_LYRICS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

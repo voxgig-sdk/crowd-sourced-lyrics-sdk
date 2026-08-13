@@ -23,8 +23,8 @@ module CrowdSourcedLyricsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CROWDSOURCEDLYRICS_TEST_LIVE")
-    override = getenv("CROWDSOURCEDLYRICS_TEST_OVERRIDE")
+    live = getenv("CROWD_SOURCED_LYRICS_TEST_LIVE")
+    override = getenv("CROWD_SOURCED_LYRICS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CrowdSourcedLyricsTestRunner
       end
     end
 
-    explain = getenv("CROWDSOURCEDLYRICS_TEST_EXPLAIN")
-    m["CROWDSOURCEDLYRICS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CROWD_SOURCED_LYRICS_TEST_EXPLAIN")
+    m["CROWD_SOURCED_LYRICS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -35,7 +35,7 @@ $client = new CrowdSourcedLyricsSDK();
 
 ```php
 try {
-    // load() returns the bare Get record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Get record (throws on error).
     $get = $client->Get()->load(["id" => 1]);
     print_r($get);
 } catch (\Throwable $err) {
@@ -126,7 +126,8 @@ $client = CrowdSourcedLyricsSDK::test([
     "entity" => ["get" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $get = $client->Get()->load(["id" => "test01"]);
 print_r($get);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -247,13 +248,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `album_name` |  |
-| `artist_name` |  |
+| `albumName` |  |
+| `artistName` |  |
 | `duration` |  |
 | `id` |  |
-| `plain_lyric` |  |
-| `synced_lyric` |  |
-| `track_name` |  |
+| `plainLyrics` |  |
+| `syncedLyrics` |  |
+| `trackName` |  |
 
 Operations: Load.
 
@@ -278,18 +279,18 @@ Create an instance: `$get = $client->Get();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album_name` | `string` |  |
-| `artist_name` | `string` |  |
+| `albumName` | `string` |  |
+| `artistName` | `string` |  |
 | `duration` | `int` |  |
 | `id` | `int` |  |
-| `plain_lyric` | `string` |  |
-| `synced_lyric` | `string` |  |
-| `track_name` | `string` |  |
+| `plainLyrics` | `string` |  |
+| `syncedLyrics` | `string` |  |
+| `trackName` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Get record (throws on error).
+// load() returns the ENTITY — call data_get() for the Get record (throws on error).
 $get = $client->Get()->load(["id" => 1]);
 ```
 
