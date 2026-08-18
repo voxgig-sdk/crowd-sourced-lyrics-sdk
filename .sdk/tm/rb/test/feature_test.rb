@@ -15,7 +15,7 @@ require_relative "../CrowdSourcedLyrics_sdk"
 module CrowdSourcedLyricsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CrowdSourcedLyricsConfig.make_config["feature"]
+    f = CrowdSourcedLyricsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

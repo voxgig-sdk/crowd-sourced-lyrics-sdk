@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://lrclib.net/api',
+    base: "https://lrclib.net/api",
 
     headers: {
       "content-type": "application/json"
@@ -55,53 +55,32 @@ class Config {
     "get": {
       "fields": [
         {
-          "active": true,
           "name": "albumName",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "artistName",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "duration",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 2
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 3
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "plainLyrics",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "syncedLyrics",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "trackName",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         }
       ],
       "name": "get",
@@ -111,42 +90,33 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "album_name",
                     "orig": "album_name",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "Rick Astley",
                     "kind": "query",
                     "name": "artist_name",
                     "orig": "artist_name",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 213,
                     "kind": "query",
                     "name": "duration",
                     "orig": "duration",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": "Never Gonna Give You Up",
                     "kind": "query",
                     "name": "track_name",
                     "orig": "track_name",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -168,11 +138,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

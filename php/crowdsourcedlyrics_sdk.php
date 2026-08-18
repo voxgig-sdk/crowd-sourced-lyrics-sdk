@@ -40,7 +40,7 @@ class CrowdSourcedLyricsSDK
         $utility = new CrowdSourcedLyricsUtility();
         $this->_utility = $utility;
 
-        $config = CrowdSourcedLyricsConfig::make_config();
+        $config = CrowdSourcedLyricsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -23,8 +23,8 @@ class CrowdSourcedLyricsSDK:
         utility = CrowdSourcedLyricsUtility()
         self._utility = utility
 
-        from crowdsourcedlyrics_sdk.config import make_config
-        config = make_config()
+        from crowdsourcedlyrics_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

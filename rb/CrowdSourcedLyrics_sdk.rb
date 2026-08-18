@@ -28,7 +28,7 @@ class CrowdSourcedLyricsSDK
     utility = CrowdSourcedLyricsUtility.new
     @_utility = utility
 
-    config = CrowdSourcedLyricsConfig.make_config
+    config = CrowdSourcedLyricsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
