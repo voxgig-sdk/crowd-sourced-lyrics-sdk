@@ -8,36 +8,43 @@ main: kit: entity: get: {
     {
       name: "albumName"
       req: false
+      short: "The name of the album"
       type: "`$STRING`"
     }
     {
       name: "artistName"
       req: false
+      short: "The name of the artist"
       type: "`$STRING`"
     }
     {
       name: "duration"
       req: false
+      short: "Duration of the track in seconds"
       type: "`$INTEGER`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the lyrics entry"
       type: "`$INTEGER`"
     }
     {
       name: "plainLyrics"
       req: false
+      short: "Plain text lyrics without timestamps"
       type: "`$STRING`"
     }
     {
       name: "syncedLyrics"
       req: false
+      short: "Synchronized lyrics in LRC format with timestamps"
       type: "`$STRING`"
     }
     {
       name: "trackName"
       req: false
+      short: "The name of the track"
       type: "`$STRING`"
     }
   ]

@@ -225,13 +225,13 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `albumName` |  |
-| `artistName` |  |
-| `duration` |  |
-| `id` |  |
-| `plainLyrics` |  |
-| `syncedLyrics` |  |
-| `trackName` |  |
+| `albumName` | The name of the album |
+| `artistName` | The name of the artist |
+| `duration` | Duration of the track in seconds |
+| `id` | Unique identifier for the lyrics entry |
+| `plainLyrics` | Plain text lyrics without timestamps |
+| `syncedLyrics` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | The name of the track |
 
 Operations: Load.
 
@@ -256,13 +256,13 @@ Create an instance: `local get = client:Get(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `albumName` | `string` |  |
-| `artistName` | `string` |  |
-| `duration` | `number` |  |
-| `id` | `number` |  |
-| `plainLyrics` | `string` |  |
-| `syncedLyrics` | `string` |  |
-| `trackName` | `string` |  |
+| `albumName` | `string` | The name of the album |
+| `artistName` | `string` | The name of the artist |
+| `duration` | `number` | Duration of the track in seconds |
+| `id` | `number` | Unique identifier for the lyrics entry |
+| `plainLyrics` | `string` | Plain text lyrics without timestamps |
+| `syncedLyrics` | `string` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `string` | The name of the track |
 
 #### Example: Load
 

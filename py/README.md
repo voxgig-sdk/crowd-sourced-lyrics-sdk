@@ -241,13 +241,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `albumName` |  |
-| `artistName` |  |
-| `duration` |  |
-| `id` |  |
-| `plainLyrics` |  |
-| `syncedLyrics` |  |
-| `trackName` |  |
+| `albumName` | The name of the album |
+| `artistName` | The name of the artist |
+| `duration` | Duration of the track in seconds |
+| `id` | Unique identifier for the lyrics entry |
+| `plainLyrics` | Plain text lyrics without timestamps |
+| `syncedLyrics` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | The name of the track |
 
 Operations: Load.
 
@@ -272,13 +272,13 @@ Create an instance: `get = client.Get()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `albumName` | `str` |  |
-| `artistName` | `str` |  |
-| `duration` | `int` |  |
-| `id` | `int` |  |
-| `plainLyrics` | `str` |  |
-| `syncedLyrics` | `str` |  |
-| `trackName` | `str` |  |
+| `albumName` | `str` | The name of the album |
+| `artistName` | `str` | The name of the artist |
+| `duration` | `int` | Duration of the track in seconds |
+| `id` | `int` | Unique identifier for the lyrics entry |
+| `plainLyrics` | `str` | Plain text lyrics without timestamps |
+| `syncedLyrics` | `str` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `str` | The name of the track |
 
 #### Example: Load
 

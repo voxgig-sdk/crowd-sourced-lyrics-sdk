@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CrowdSourcedLyrics",
+			"slug": "crowd-sourced-lyrics",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,30 +36,37 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "albumName",
+						"short": "The name of the album",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "artistName",
+						"short": "The name of the artist",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "duration",
+						"short": "Duration of the track in seconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the lyrics entry",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "plainLyrics",
+						"short": "Plain text lyrics without timestamps",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "syncedLyrics",
+						"short": "Synchronized lyrics in LRC format with timestamps",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "trackName",
+						"short": "The name of the track",
 						"type": "`$STRING`",
 					},
 				},

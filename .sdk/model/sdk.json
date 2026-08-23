@@ -36,42 +36,49 @@
               "active": true,
               "name": "albumName",
               "req": false,
+              "short": "The name of the album",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "artistName",
               "req": false,
+              "short": "The name of the artist",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "duration",
               "req": false,
+              "short": "Duration of the track in seconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the lyrics entry",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "plainLyrics",
               "req": false,
+              "short": "Plain text lyrics without timestamps",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "syncedLyrics",
               "req": false,
+              "short": "Synchronized lyrics in LRC format with timestamps",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "trackName",
               "req": false,
+              "short": "The name of the track",
               "type": "`$STRING`"
             }
           ],

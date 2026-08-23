@@ -19,6 +19,9 @@ module CrowdSourcedLyricsConfig
     {
       "main" => {
         "name" => "CrowdSourcedLyrics",
+        "slug" => "crowd-sourced-lyrics",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -41,30 +44,37 @@ module CrowdSourcedLyricsConfig
           "fields" => [
             {
               "name" => "albumName",
+              "short" => "The name of the album",
               "type" => "`$STRING`",
             },
             {
               "name" => "artistName",
+              "short" => "The name of the artist",
               "type" => "`$STRING`",
             },
             {
               "name" => "duration",
+              "short" => "Duration of the track in seconds",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the lyrics entry",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "plainLyrics",
+              "short" => "Plain text lyrics without timestamps",
               "type" => "`$STRING`",
             },
             {
               "name" => "syncedLyrics",
+              "short" => "Synchronized lyrics in LRC format with timestamps",
               "type" => "`$STRING`",
             },
             {
               "name" => "trackName",
+              "short" => "The name of the track",
               "type" => "`$STRING`",
             },
           ],

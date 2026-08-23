@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,13 +285,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `albumName` |  |
-| `artistName` |  |
-| `duration` |  |
-| `id` |  |
-| `plainLyrics` |  |
-| `syncedLyrics` |  |
-| `trackName` |  |
+| `albumName` | The name of the album |
+| `artistName` | The name of the artist |
+| `duration` | Duration of the track in seconds |
+| `id` | Unique identifier for the lyrics entry |
+| `plainLyrics` | Plain text lyrics without timestamps |
+| `syncedLyrics` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | The name of the track |
 
 Operations: load.
 
@@ -316,13 +316,13 @@ Create an instance: `const get = client.Get()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `albumName` | `string` |  |
-| `artistName` | `string` |  |
-| `duration` | `number` |  |
-| `id` | `number` |  |
-| `plainLyrics` | `string` |  |
-| `syncedLyrics` | `string` |  |
-| `trackName` | `string` |  |
+| `albumName` | `string` | The name of the album |
+| `artistName` | `string` | The name of the artist |
+| `duration` | `number` | Duration of the track in seconds |
+| `id` | `number` | Unique identifier for the lyrics entry |
+| `plainLyrics` | `string` | Plain text lyrics without timestamps |
+| `syncedLyrics` | `string` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `string` | The name of the track |
 
 #### Example: Load
 

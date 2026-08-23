@@ -93,13 +93,13 @@ get = client.Get
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `albumName` | `String` | No |  |
-| `artistName` | `String` | No |  |
-| `duration` | `Integer` | No |  |
-| `id` | `Integer` | No |  |
-| `plainLyrics` | `String` | No |  |
-| `syncedLyrics` | `String` | No |  |
-| `trackName` | `String` | No |  |
+| `albumName` | `String` | No | The name of the album |
+| `artistName` | `String` | No | The name of the artist |
+| `duration` | `Integer` | No | Duration of the track in seconds |
+| `id` | `Integer` | No | Unique identifier for the lyrics entry |
+| `plainLyrics` | `String` | No | Plain text lyrics without timestamps |
+| `syncedLyrics` | `String` | No | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `String` | No | The name of the track |
 
 ### Operations
 

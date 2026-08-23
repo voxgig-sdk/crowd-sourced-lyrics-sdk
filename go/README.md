@@ -6,7 +6,7 @@ The Golang SDK for the CrowdSourcedLyrics API — an entity-oriented client usin
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Get(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,13 +258,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"albumName"` |  |
-| `"artistName"` |  |
-| `"duration"` |  |
-| `"id"` |  |
-| `"plainLyrics"` |  |
-| `"syncedLyrics"` |  |
-| `"trackName"` |  |
+| `"albumName"` | The name of the album |
+| `"artistName"` | The name of the artist |
+| `"duration"` | Duration of the track in seconds |
+| `"id"` | Unique identifier for the lyrics entry |
+| `"plainLyrics"` | Plain text lyrics without timestamps |
+| `"syncedLyrics"` | Synchronized lyrics in LRC format with timestamps |
+| `"trackName"` | The name of the track |
 
 Operations: Load.
 
@@ -289,13 +289,13 @@ Create an instance: `get := client.Get(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `albumName` | `string` |  |
-| `artistName` | `string` |  |
-| `duration` | `int` |  |
-| `id` | `int` |  |
-| `plainLyrics` | `string` |  |
-| `syncedLyrics` | `string` |  |
-| `trackName` | `string` |  |
+| `albumName` | `string` | The name of the album |
+| `artistName` | `string` | The name of the artist |
+| `duration` | `int` | Duration of the track in seconds |
+| `id` | `int` | Unique identifier for the lyrics entry |
+| `plainLyrics` | `string` | Plain text lyrics without timestamps |
+| `syncedLyrics` | `string` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `string` | The name of the track |
 
 #### Example: Load
 

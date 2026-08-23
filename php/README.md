@@ -248,13 +248,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `albumName` |  |
-| `artistName` |  |
-| `duration` |  |
-| `id` |  |
-| `plainLyrics` |  |
-| `syncedLyrics` |  |
-| `trackName` |  |
+| `albumName` | The name of the album |
+| `artistName` | The name of the artist |
+| `duration` | Duration of the track in seconds |
+| `id` | Unique identifier for the lyrics entry |
+| `plainLyrics` | Plain text lyrics without timestamps |
+| `syncedLyrics` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | The name of the track |
 
 Operations: Load.
 
@@ -279,13 +279,13 @@ Create an instance: `$get = $client->Get();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `albumName` | `string` |  |
-| `artistName` | `string` |  |
-| `duration` | `int` |  |
-| `id` | `int` |  |
-| `plainLyrics` | `string` |  |
-| `syncedLyrics` | `string` |  |
-| `trackName` | `string` |  |
+| `albumName` | `string` | The name of the album |
+| `artistName` | `string` | The name of the artist |
+| `duration` | `int` | Duration of the track in seconds |
+| `id` | `int` | Unique identifier for the lyrics entry |
+| `plainLyrics` | `string` | Plain text lyrics without timestamps |
+| `syncedLyrics` | `string` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `string` | The name of the track |
 
 #### Example: Load
 

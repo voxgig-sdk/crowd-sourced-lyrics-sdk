@@ -238,13 +238,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `albumName` |  |
-| `artistName` |  |
-| `duration` |  |
-| `id` |  |
-| `plainLyrics` |  |
-| `syncedLyrics` |  |
-| `trackName` |  |
+| `albumName` | The name of the album |
+| `artistName` | The name of the artist |
+| `duration` | Duration of the track in seconds |
+| `id` | Unique identifier for the lyrics entry |
+| `plainLyrics` | Plain text lyrics without timestamps |
+| `syncedLyrics` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | The name of the track |
 
 Operations: Load.
 
@@ -269,13 +269,13 @@ Create an instance: `get = client.Get`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `albumName` | `String` |  |
-| `artistName` | `String` |  |
-| `duration` | `Integer` |  |
-| `id` | `Integer` |  |
-| `plainLyrics` | `String` |  |
-| `syncedLyrics` | `String` |  |
-| `trackName` | `String` |  |
+| `albumName` | `String` | The name of the album |
+| `artistName` | `String` | The name of the artist |
+| `duration` | `Integer` | Duration of the track in seconds |
+| `id` | `Integer` | Unique identifier for the lyrics entry |
+| `plainLyrics` | `String` | Plain text lyrics without timestamps |
+| `syncedLyrics` | `String` | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `String` | The name of the track |
 
 #### Example: Load
 

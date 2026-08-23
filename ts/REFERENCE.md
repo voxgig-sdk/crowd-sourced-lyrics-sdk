@@ -116,13 +116,13 @@ const get = client.Get()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `albumName` | `string` | No |  |
-| `artistName` | `string` | No |  |
-| `duration` | `number` | No |  |
-| `id` | `number` | No |  |
-| `plainLyrics` | `string` | No |  |
-| `syncedLyrics` | `string` | No |  |
-| `trackName` | `string` | No |  |
+| `albumName` | `string` | No | The name of the album |
+| `artistName` | `string` | No | The name of the artist |
+| `duration` | `number` | No | Duration of the track in seconds |
+| `id` | `number` | No | Unique identifier for the lyrics entry |
+| `plainLyrics` | `string` | No | Plain text lyrics without timestamps |
+| `syncedLyrics` | `string` | No | Synchronized lyrics in LRC format with timestamps |
+| `trackName` | `string` | No | The name of the track |
 
 ### Operations
 
