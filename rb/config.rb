@@ -28,6 +28,7 @@ module CrowdSourcedLyricsConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
