@@ -27,12 +27,9 @@ class Get
 /** Request payload for Get#load. */
 class GetLoadMatch
 {
-    public ?string $albumName = null;
-    public ?string $artistName = null;
+    public ?string $album_name = null;
+    public ?string $artist_name = null;
     public ?int $duration = null;
-    public int $id;
-    public ?string $plainLyrics = null;
-    public ?string $syncedLyrics = null;
-    public ?string $trackName = null;
+    public ?string $track_name = null;
 }
 

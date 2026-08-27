@@ -16,12 +16,9 @@ export interface Get {
 }
 
 export interface GetLoadMatch {
-  albumName?: string
-  artistName?: string
+  album_name?: string
+  artist_name?: string
   duration?: number
-  id: number
-  plainLyrics?: string
-  syncedLyrics?: string
-  trackName?: string
+  track_name?: string
 }
 

@@ -16,13 +16,10 @@
 ---@field trackName? string
 
 ---@class GetLoadMatch
----@field albumName? string
----@field artistName? string
+---@field album_name? string
+---@field artist_name? string
 ---@field duration? number
----@field id number
----@field plainLyrics? string
----@field syncedLyrics? string
----@field trackName? string
+---@field track_name? string
 
 local M = {}
 

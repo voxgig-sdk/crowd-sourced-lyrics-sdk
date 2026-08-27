@@ -14,6 +14,10 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+> **Features:** `test` — opt-in,
+> inactive until switched on, and configured per client. See the Features
+> section of any SDK README below for what each one does.
+
 ## Entities, not endpoints
 
 This SDK exposes the API as a small set of **semantic entities** — Get — that you
@@ -23,7 +27,7 @@ support (`load`):
 
 ```ts
 const client = new CrowdSourcedLyricsSDK()
-const get = await client.Get().load({ id: 1 })
+const get = await client.Get().load()
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -47,7 +51,7 @@ const client = CrowdSourcedLyricsSDK.test({
     },
   },
 })
-const get = await client.Get().load({ id: 1 })
+const get = await client.Get().load()
 // get is the Get entity, populated with mock data
 // — call get.data() for the record itself
 console.log(get)
@@ -57,7 +61,7 @@ console.log(get)
 
 ```python
 client = CrowdSourcedLyricsSDK.test()
-get = client.Get().load({"id": "test01"})
+get = client.Get().load()
 print(get)
 ```
 
@@ -66,9 +70,9 @@ print(get)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CrowdSourcedLyricsSDK::test([
-    "entity" => ["get" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["get" => ["test01" => []]],
 ]);
-$get = $client->Get()->load(["id" => "test01"]);
+$get = $client->Get()->load();
 ```
 
 ### Golang
@@ -76,7 +80,7 @@ $get = $client->Get()->load(["id" => "test01"]);
 ```go
 client := sdk.Test()
 result, err := client.Get(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 ```
 
@@ -85,16 +89,16 @@ result, err := client.Get(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CrowdSourcedLyricsSDK.test({
-  "entity" => { "get" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "get" => { "test01" => {} } },
 })
-get = client.Get.load({ "id" => "test01" })
+get = client.Get.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Get():load({ id = "test01" })
+local result, err = client:Get():load()
 ```
 
 ## Packages
@@ -178,7 +182,7 @@ client = CrowdSourcedLyricsSDK()
 
 
 # Load a specific get (returns the record, raises on error)
-get = client.Get().load({"id": 1})
+get = client.Get().load()
 print(get)
 ```
 
@@ -192,7 +196,7 @@ $client = new CrowdSourcedLyricsSDK();
 
 
 // Load a specific get (returns the ENTITY; call data_get() for the record; throws on error)
-$get = $client->Get()->load(["id" => 1]);
+$get = $client->Get()->load();
 print_r($get);
 ```
 
@@ -204,7 +208,7 @@ import sdk "github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go"
 client := sdk.New()
 
 // Load get data
-get, err := client.Get(nil).Load(map[string]any{"id": 1}, nil)
+get, err := client.Get(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -220,7 +224,7 @@ client = CrowdSourcedLyricsSDK.new
 
 
 # Load a specific get (returns the ENTITY; call data_get for the record)
-get = client.Get.load({ "id" => 1 })
+get = client.Get.load()
 puts get
 ```
 
@@ -233,7 +237,7 @@ local client = sdk.new()
 
 
 -- Load a specific get
-local get, err = client:Get():load({ id = 1 })
+local get, err = client:Get():load()
 print(get)
 ```
 
@@ -339,6 +343,32 @@ forking the SDK.
 | **TestFeature** | In-memory mock transport for testing without a live server |
 
 Pass custom features via the `extend` option at construction time.
+
+## Customizing this SDK
+
+This repository contains its own generator (`.sdk/`), so the SDK is
+customizable without forking any upstream tool:
+
+- **The model** (`.sdk/model/`) declares everything this project owns:
+  package names, versions, active features, per-target settings. It is
+  written in [aontu](https://github.com/aontu-lang/aontu), a JSON-based
+  specification language designed for building ontologies: easy to edit
+  by hand, and files unify rather than override, so small declarations
+  compose into one model. Regeneration re-reads it every time.
+- **Templates** (`.sdk/tm/`) and **components** (`.sdk/src/cmp/`) are
+  the two layers of generation, copied into this repo: templates are the
+  literal per-language source, components generate the API-shaped parts.
+- **Regeneration merges.** By default, newly generated content is
+  three-way merged into existing files, so generator updates and local
+  edits usually converge without manual conflict handling. A project can
+  opt for plain overwrite instead.
+- **Custom features and entire custom targets** arrive through sdkgen
+  packages (`voxgig-sdkgen package add`), on the same rails as the
+  bundled languages, and `voxgig-sdkgen doctor` reports any drift from
+  what a resync would write.
+
+How-to: [customize and propagate templates](https://github.com/voxgig/sdkgen/blob/main/docs/how-to/customize-and-propagate-templates.md).
+The full story: [voxgig.com/sdk/custom](https://voxgig.com/sdk/custom).
 
 ## Per-language documentation
 

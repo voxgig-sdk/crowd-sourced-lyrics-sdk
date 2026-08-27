@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a get
 
 ```lua
-local get, err = client:Get():load({ id = 1 })
+local get, err = client:Get():load()
 if err then error(err) end
 print(get)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local get, err = client:Get():load({ id = 1 })
+local get, err = client:Get():load()
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Get():load({ id = "test01" })
+local result, err = client:Get():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -212,7 +212,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local get, err = client:Get():load({ id = "example_id" })
+    local get, err = client:Get():load()
     if err then error(err) end
     -- get is the loaded record
 
@@ -267,8 +267,31 @@ Create an instance: `local get = client:Get(nil)`
 #### Example: Load
 
 ```lua
-local get, err = client:Get():load({ id = 1 })
+local get, err = client:Get():load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -348,7 +371,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local get = client:Get()
-get:load({ id = 1 })
+get:load()
 
 -- get:data_get() now returns the get data from the last load
 -- get:match_get() returns the last match criteria

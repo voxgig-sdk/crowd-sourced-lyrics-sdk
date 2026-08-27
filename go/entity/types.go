@@ -25,13 +25,10 @@ type Get struct {
 
 // GetLoadMatch is the typed request payload for Get.LoadTyped.
 type GetLoadMatch struct {
-	AlbumName *string `json:"albumName,omitempty"`
-	ArtistName *string `json:"artistName,omitempty"`
+	AlbumName *string `json:"album_name,omitempty"`
+	ArtistName *string `json:"artist_name,omitempty"`
 	Duration *int `json:"duration,omitempty"`
-	Id int `json:"id"`
-	PlainLyrics *string `json:"plainLyrics,omitempty"`
-	SyncedLyrics *string `json:"syncedLyrics,omitempty"`
-	TrackName *string `json:"trackName,omitempty"`
+	TrackName *string `json:"track_name,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

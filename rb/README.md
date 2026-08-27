@@ -35,7 +35,7 @@ client = CrowdSourcedLyricsSDK.new
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Get record (raises on error).
-  get = client.Get.load({ "id" => 1 })
+  get = client.Get.load()
   puts get
 rescue => err
   warn "load failed: #{err}"
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  get = client.Get.load({ "id" => 1 })
+  get = client.Get.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -112,17 +112,14 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```ruby
-client = CrowdSourcedLyricsSDK.test({
-  "entity" => { "get" => { "test01" => { "id" => "test01" } } },
-})
+client = CrowdSourcedLyricsSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-get = client.Get.load({ "id" => "test01" })
+get = client.Get.load()
 puts get
 ```
 
@@ -281,8 +278,31 @@ Create an instance: `get = client.Get`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Get record (raises on error).
-get = client.Get.load({ "id" => 1 })
+get = client.Get.load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -362,7 +382,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 get = client.Get
-get.load({ "id" => 1 })
+get.load()
 
 # get.data_get now returns the get data from the last load
 # get.match_get returns the last match criteria

@@ -36,7 +36,7 @@ $client = new CrowdSourcedLyricsSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Get record (throws on error).
-    $get = $client->Get()->load(["id" => 1]);
+    $get = $client->Get()->load();
     print_r($get);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $get = $client->Get()->load(["id" => 1]);
+    $get = $client->Get()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -118,17 +118,14 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = CrowdSourcedLyricsSDK::test([
-    "entity" => ["get" => ["test01" => ["id" => "test01"]]],
-]);
+$client = CrowdSourcedLyricsSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$get = $client->Get()->load(["id" => "test01"]);
+$get = $client->Get()->load();
 print_r($get);
 ```
 
@@ -291,8 +288,31 @@ Create an instance: `$get = $client->Get();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Get record (throws on error).
-$get = $client->Get()->load(["id" => 1]);
+$get = $client->Get()->load();
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -372,7 +392,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $get = $client->Get();
-$get->load(["id" => 1]);
+$get->load();
 
 // $get->data_get() now returns the get data from the last load
 // $get->match_get() returns the last match criteria

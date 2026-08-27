@@ -43,34 +43,22 @@ Get = Struct.new(
 
 # Request payload for Get#load.
 #
-# @!attribute [rw] albumName
+# @!attribute [rw] album_name
 #   @return [String, nil]
 #
-# @!attribute [rw] artistName
+# @!attribute [rw] artist_name
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
 #   @return [Integer, nil]
 #
-# @!attribute [rw] id
-#   @return [Integer]
-#
-# @!attribute [rw] plainLyrics
-#   @return [String, nil]
-#
-# @!attribute [rw] syncedLyrics
-#   @return [String, nil]
-#
-# @!attribute [rw] trackName
+# @!attribute [rw] track_name
 #   @return [String, nil]
 GetLoadMatch = Struct.new(
-  :albumName,
-  :artistName,
+  :album_name,
+  :artist_name,
   :duration,
-  :id,
-  :plainLyrics,
-  :syncedLyrics,
-  :trackName,
+  :track_name,
   keyword_init: true
 )
 
