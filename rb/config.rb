@@ -79,6 +79,10 @@ module CrowdSourcedLyricsConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "get",
           "op" => {
             "load" => {
@@ -120,8 +124,10 @@ module CrowdSourcedLyricsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/get",
-                  "parts" => [
-                    "get",
+                  "segments" => [
+                    {
+                      "lit" => "get",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -135,6 +141,9 @@ module CrowdSourcedLyricsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "get",
+                  ],
                 },
               ],
             },

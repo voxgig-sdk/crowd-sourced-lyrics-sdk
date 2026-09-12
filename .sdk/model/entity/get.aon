@@ -97,8 +97,10 @@ main: kit: entity: get: {
           }
           method: "GET"
           orig: "/get"
-          parts: [
-            "get"
+          segments: [
+            {
+              lit: "get"
+            }
           ]
           select: {
             exist: [

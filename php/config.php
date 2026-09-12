@@ -93,6 +93,10 @@ class CrowdSourcedLyricsConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'get',
           'op' => [
             'load' => [
@@ -134,8 +138,10 @@ class CrowdSourcedLyricsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/get',
-                  'parts' => [
-                    'get',
+                  'segments' => [
+                    [
+                      'lit' => 'get',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -148,6 +154,9 @@ class CrowdSourcedLyricsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'get',
                   ],
                 ],
               ],

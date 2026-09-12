@@ -67,6 +67,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "get",
         ["op"] = {
           ["load"] = {
@@ -108,8 +112,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/get",
-                ["parts"] = {
-                  "get",
+                ["segments"] = {
+                  {
+                    ["lit"] = "get",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -122,6 +128,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "get",
                 },
               },
             },
