@@ -105,7 +105,7 @@ local result, err = client:Get():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/crowd-sourced-lyrics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/releases) |
+| TypeScript | `@voxgig-sdk/crowd-sourced-lyrics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/releases) |
 | Python | `voxgig-sdk-crowd-sourced-lyrics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/releases) |
 | PHP | `voxgig-sdk/crowd-sourced-lyrics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go` | `go get github.com/voxgig-sdk/crowd-sourced-lyrics-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Get():load()
 ### TypeScript
 
 ```ts
-import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics'
+import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics-sdk'
 
 const client = new CrowdSourcedLyricsSDK()
 

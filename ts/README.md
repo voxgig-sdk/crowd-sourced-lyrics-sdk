@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics'
+import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics-sdk'
 
 const client = new CrowdSourcedLyricsSDK()
 ```
@@ -413,7 +413,7 @@ crowd-sourced-lyrics/
 Import the SDK from the package root:
 
 ```ts
-import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics'
+import { CrowdSourcedLyricsSDK } from '@voxgig-sdk/crowd-sourced-lyrics-sdk'
 ```
 
 ### Entity state
